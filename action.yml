@@ -1,4 +1,4 @@
-name: 'secrets-to-env'
+name: 'run-with-secrets'
 description: 'Takes all secrets and dumps them to shell env'
 author: '@CryogenicPlanet'
 inputs:
