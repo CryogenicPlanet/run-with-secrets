@@ -1,11 +1,13 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'secrets-to-env'
+description: 'Takes all secrets and dumps them to shell env'
+author: '@CryogenicPlanet'
 inputs:
-  milliseconds: # change this
+  secrets:
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: 'Dump all secrets as json here'
+  command:
+    required: true
+    description: 'The command you want to run with all the secrets'
 runs:
   using: 'node12'
   main: 'dist/index.js'
