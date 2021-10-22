@@ -11,7 +11,9 @@ async function run(): Promise<void> {
 
     execSync(command, {env: {...process.env, secrets}, stdio: 'inherit'})
   } catch (error) {
-    if (error instanceof Error) core.setFailed(error.message)
+    const msg = error?.stderr?.toString()
+    core.debug(msg)
+    core.setFailed('Failed to run command')
   }
 }
 
