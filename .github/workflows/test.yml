@@ -22,7 +22,7 @@ jobs:
       - uses: ./
         with:
           secrets: ${{ toJson(secrets) }}
-          command: printenv\
+          command: printenv
   fail-test: # make sure the action works on a clean machine without building
     runs-on: ubuntu-latest
     steps:
@@ -31,5 +31,5 @@ jobs:
         with:
           secrets: ${{ toJson(secrets) }}
           command: random-nonexistant-cmd
-      - if: ${{!failure()}}
+      - if: failure()
         run: "echo expected failure on previous step!"
