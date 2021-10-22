@@ -1,8 +1,6 @@
 var __create = Object.create;
 var __defProp = Object.defineProperty;
-var __defProps = Object.defineProperties;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __getProtoOf = Object.getPrototypeOf;
@@ -20,7 +18,6 @@ var __spreadValues = (a, b) => {
     }
   return a;
 };
-var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
 var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[Object.keys(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
@@ -1342,7 +1339,7 @@ function run() {
       const jsonSecrets = core.getInput("secrets");
       const command = core.getInput("command");
       const secrets = JSON.parse(jsonSecrets);
-      (0, import_child_process.execSync)(command, { env: __spreadProps(__spreadValues({}, process.env), { secrets }), stdio: "inherit" });
+      (0, import_child_process.execSync)(command, { env: __spreadValues(__spreadValues({}, process.env), secrets), stdio: "inherit" });
     } catch (error) {
       const msg = (_a = error == null ? void 0 : error.stderr) == null ? void 0 : _a.toString();
       core.debug(msg);

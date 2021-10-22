@@ -9,7 +9,7 @@ async function run(): Promise<void> {
 
     const secrets = JSON.parse(jsonSecrets)
 
-    execSync(command, {env: {...process.env, secrets}, stdio: 'inherit'})
+    execSync(command, {env: {...process.env, ...secrets}, stdio: 'inherit'})
   } catch (error) {
     const msg = error?.stderr?.toString()
     core.debug(msg)
