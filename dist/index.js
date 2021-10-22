@@ -1597,7 +1597,7 @@ function run() {
             const jsonSecrets = core.getInput('secrets');
             const command = core.getInput('command');
             const secrets = JSON.parse(jsonSecrets);
-            (0, child_process_1.execSync)(command, { env: Object.assign(Object.assign({}, process.env), { secrets }) });
+            (0, child_process_1.execSync)(command, { env: Object.assign(Object.assign({}, process.env), { secrets }), stdio: 'inherit' });
         }
         catch (error) {
             if (error instanceof Error)
